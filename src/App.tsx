@@ -1,15 +1,24 @@
 import React from "react";
-
+import Button from "./components/Button/button";
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>hello world</h1>
-        <h2>hello world</h2>
-        <h3>hello world</h3>
-        <h4>hello world</h4>
-        <h5>hello world</h5>
-        <h6>hello world</h6>
+        <Button
+          btnType="link"
+          size="lg"
+          disabled
+          href="https://www.typescriptlang.org/docs/handbook/utility-types.html"
+        >
+          hello world
+        </Button>
+        <Button btnType="danger" size="lg" disabled>
+          hello world
+        </Button>
+        <Button btnType="default" size="sm">
+          hello world
+        </Button>
+        <Button btnType="primary">hello world</Button>
         <code>const a = &apos;b&apos;</code>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
