@@ -12,12 +12,13 @@ const BTN_TYPE = {
   Danger: "danger",
   Link: "link",
 } as const;
+type TBtn = "primary" | "default" | "danger" | "link";
 
 interface IButtonProps {
   className?: string;
   size?: typeof BTN_SIZE[keyof typeof BTN_SIZE];
   disabled?: boolean;
-  btnType?: typeof BTN_TYPE[keyof typeof BTN_TYPE];
+  btnType?: TBtn;
   url?: string;
 }
 
@@ -27,7 +28,7 @@ type TNativeButtonProps = Partial<React.ButtonHTMLAttributes<HTMLElement>> &
 type TNativeAnchorProps = Partial<React.AnchorHTMLAttributes<HTMLElement>> &
   IButtonProps;
 
-type TButtonProps = TNativeButtonProps & TNativeAnchorProps;
+export type TButtonProps = TNativeButtonProps & TNativeAnchorProps;
 
 const Button: React.FC<TButtonProps> = (props) => {
   const {
@@ -40,7 +41,7 @@ const Button: React.FC<TButtonProps> = (props) => {
     ...restProps
   } = props;
 
-  const isLink = btnType === BTN_TYPE.Link;
+  const isLink = btnType === "link";
 
   const classes = cx("btn", className, {
     [`btn-${btnType}`]: btnType,
