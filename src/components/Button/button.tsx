@@ -29,7 +29,7 @@ type TNativeAnchorProps = Partial<React.AnchorHTMLAttributes<HTMLElement>> &
 
 type TButtonProps = TNativeButtonProps & TNativeAnchorProps;
 
-const Button: React.FC<TButtonProps> = (props) => {
+const Button = (props: TButtonProps) => {
   const {
     size,
     disabled = false,
